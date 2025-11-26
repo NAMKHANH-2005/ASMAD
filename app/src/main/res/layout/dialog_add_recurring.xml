@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/etRecurringName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên khoản chi (ví dụ: Tiền nhà)"
+        android:inputType="textCapWords" />
+
+    <EditText
+        android:id="@+id/etRecurringAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Số tiền"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Loại định kì:" />
+
+    <RadioGroup
+        android:id="@+id/rgRecurringType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbMonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Hàng tháng" />
+
+        <RadioButton
+            android:id="@+id/rbYearly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hàng năm" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/etRecurringDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Ngày trong tháng (1-31)"
+        android:inputType="number" />
+</LinearLayout>
