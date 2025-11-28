@@ -21,7 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USER_COLUMN_ID = "id";
     private static final String TABLE_USER_COLUMN_USERNAME = "username";
     private static final String TABLE_USER_COLUMN_PASSWORD = "password";
-    private static final String TABLE_USER_COLUMN_FULLNAME = "fullname";
+    private static final String TABLE_USER_COLUMN_EMAIL = "email";
+
 
     // Table Product
     private static final String TABLE_PRODUCT = "products";
@@ -40,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USER + "("
                 + TABLE_USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TABLE_USER_COLUMN_USERNAME + " TEXT, "
-                + TABLE_USER_COLUMN_FULLNAME + " TEXT, "
+                + TABLE_USER_COLUMN_EMAIL + " TEXT, "
                 + TABLE_USER_COLUMN_PASSWORD + " TEXT);";
         db.execSQL(CREATE_TABLE_USERS);
 
@@ -104,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues(); // Khai báo giá trị cần lưu vào database
         values.put(TABLE_USER_COLUMN_USERNAME, user.getUsername());
         values.put(TABLE_USER_COLUMN_PASSWORD, user.getPassword());
-        values.put(TABLE_USER_COLUMN_FULLNAME, user.getFullname());
+        values.put(TABLE_USER_COLUMN_EMAIL, user.getEmail());
         long id = db.insert(TABLE_USER, null, values); // Thêm dữ liệu vào bảng (return id)
         db.close();
         return id;
@@ -115,7 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase(); // Khai báo kết nối database với quyền đọc
         Cursor cursor = db.query(TABLE_USER, // Truy vấn dữ liệu trong bảng TABLE_USER
                 // Các cột cần truy vấn (cột nào cần lấy ra) (thứ tự index 0-1-2-3)
-                new String[]{TABLE_USER_COLUMN_ID, TABLE_USER_COLUMN_USERNAME, TABLE_USER_COLUMN_FULLNAME, TABLE_USER_COLUMN_PASSWORD},
+                new String[]{TABLE_USER_COLUMN_ID, TABLE_USER_COLUMN_USERNAME, TABLE_USER_COLUMN_EMAIL, TABLE_USER_COLUMN_PASSWORD},
                 // Điều kiện lấy (WHERE)
                 TABLE_USER_COLUMN_USERNAME + "=? AND " + TABLE_USER_COLUMN_PASSWORD +"=?",
                 // Giá trị của điều kiện lấy (được fill lần lượt vào dấu ?)

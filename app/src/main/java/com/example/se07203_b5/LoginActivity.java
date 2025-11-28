@@ -51,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 DatabaseHelper db = new DatabaseHelper(this);
                 User user = db.getUserByUsernameAndPassword(username, password);
-                if (user != null && user.getFullname() != null){
+                if (user != null && user.getEmail() != null){
                     sharedPreferencesEditor.putString("username", username);
-                    sharedPreferencesEditor.putString("fullname", user.getFullname());
+                    sharedPreferencesEditor.putString("email", user.getEmail());
                     sharedPreferencesEditor.putLong("user_id", user.getId());
                     sharedPreferencesEditor.putBoolean("isLogin", true);
                     sharedPreferencesEditor.apply();

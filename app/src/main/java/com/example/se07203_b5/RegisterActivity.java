@@ -8,14 +8,11 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterActivity extends AppCompatActivity {
 
     Button btnRegisterSubmit;
-    EditText edtRegisterUsername, edtRegisterPassword, edtRegisterFullname;
+    EditText edtRegisterUsername, edtRegisterPassword ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +21,14 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegisterSubmit = findViewById(R.id.btnRegisterSubmit);
         edtRegisterUsername = findViewById(R.id.edtRegisterUsername);
         edtRegisterPassword = findViewById(R.id.edtRegisterPassword);
-        edtRegisterFullname = findViewById(R.id.edtRegisterFullname);
+
 
         btnRegisterSubmit.setOnClickListener(v -> { // Xử lý sự kiện đăng ký tài khoản
             String username = edtRegisterUsername.getText().toString();
             String password = edtRegisterPassword.getText().toString();
-            String fullname = edtRegisterFullname.getText().toString();
-            User user = new User(0, username, password, fullname);
+
+
+            User user = new User(0, username, password, "");
             try {
                 DatabaseHelper db = new DatabaseHelper(this);
                 long resultId = db.addUser(user);

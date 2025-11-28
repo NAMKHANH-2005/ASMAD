@@ -4,14 +4,14 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String fullname;
+    private String email;
 
-    public User(int id, String username, String password, String fullname)
+    public User(int id, String username, String password, String email)
     {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.fullname = fullname;
+        this.email = email;
     }
 
     public String getUsername(){
@@ -21,8 +21,8 @@ public class User {
     public String getPassword(){
         return this.password;
     }
-    public String getFullname(){
-        return this.fullname;
+    public String getEmail(){
+        return this.email;
     }
 
     public int getId(){
