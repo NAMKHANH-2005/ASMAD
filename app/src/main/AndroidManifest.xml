@@ -13,6 +13,12 @@
         android:theme="@style/Theme.SE07203B5"
         tools:targetApi="31">
         <activity
+            android:name=".EditRecurringExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiaLogRecurringActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
